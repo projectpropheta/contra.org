@@ -50,15 +50,11 @@ ul {
     list-style: none;
 }
 
-strong {
-    color: #e60000;
-}
-
 /* 폰트 유틸리티 */
 .font-eva {
-    font-family: "Wallpoet", sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.05em;
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: 800;
+    letter-spacing: -0.05em;
     transform: scaleY(1.1);
 }
 
@@ -73,13 +69,14 @@ strong {
     flex-direction: column;
 }
 
-/* --- 3. SIDEBAR --- */
+/* --- 3. SIDEBAR (수정됨: Z-index 상향) --- */
 .sidebar {
     width: 100%;
     background-color: black;
     border-bottom: 1px solid #333;
     flex-shrink: 0;
-    z-index: 50;
+    z-index: 1000;
+    /* [수정] 모바일 메뉴 클릭 보장을 위해 값을 50에서 1000으로 상향 */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -156,7 +153,10 @@ strong {
 .mobile-btn {
     color: var(--nerv-red);
     border: 1px solid var(--nerv-red);
-    padding: 0.25rem 0.75rem;
+    padding: 0.5rem 1rem;
+    /* [수정] 터치 영역 확대를 위해 패딩 증가 */
+    cursor: pointer;
+    /* [수정] 클릭 커서 명시 */
 }
 
 .mobile-btn:hover {
@@ -172,6 +172,8 @@ strong {
     top: 100%;
     left: 0;
     width: 100%;
+    z-index: 1001;
+    /* [수정] 사이드바보다 위에 뜨도록 설정 */
 }
 
 .mobile-menu-link {
