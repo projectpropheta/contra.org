@@ -26,7 +26,6 @@ body {
     color: var(--text-main);
     font-family: 'Noto Sans KR', sans-serif;
     overflow-x: hidden;
-    /* 가로 스크롤 방지 */
     background-image:
         linear-gradient(rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.9)),
         url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill-opacity='0.1' fill='%2339ff14' fill-rule='evenodd'/%3E%3C/svg%3E");
@@ -69,14 +68,14 @@ ul {
     flex-direction: column;
 }
 
-/* --- 3. SIDEBAR (수정됨: Z-index 상향) --- */
+/* --- 3. SIDEBAR (Z-Index 중요 수정) --- */
 .sidebar {
     width: 100%;
     background-color: black;
     border-bottom: 1px solid #333;
     flex-shrink: 0;
-    z-index: 1000;
-    /* [수정] 모바일 메뉴 클릭 보장을 위해 값을 50에서 1000으로 상향 */
+    /* [중요 수정] 스캔라인(z-index:10)보다 확실히 위에 오도록 설정 */
+    z-index: 100;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -110,9 +109,6 @@ ul {
     display: none;
 }
 
-/* Mobile default */
-
-/* 메뉴 버튼 스타일 */
 .nav-item {
     display: block;
     width: 100%;
@@ -148,18 +144,23 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    /* z-index 적용을 위해 */
+    z-index: 102;
 }
 
 .mobile-btn {
     color: var(--nerv-red);
     border: 1px solid var(--nerv-red);
     padding: 0.5rem 1rem;
-    /* [수정] 터치 영역 확대를 위해 패딩 증가 */
     cursor: pointer;
-    /* [수정] 클릭 커서 명시 */
+    /* 터치 영역 확보 */
+    min-width: 80px;
+    text-align: center;
 }
 
-.mobile-btn:hover {
+.mobile-btn:hover,
+.mobile-btn:active {
     background: var(--nerv-red);
     color: black;
 }
@@ -172,8 +173,8 @@ ul {
     top: 100%;
     left: 0;
     width: 100%;
-    z-index: 1001;
-    /* [수정] 사이드바보다 위에 뜨도록 설정 */
+    z-index: 101;
+    /* 사이드바 바로 위 */
 }
 
 .mobile-menu-link {
