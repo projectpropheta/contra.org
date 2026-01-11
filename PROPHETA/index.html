@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT: PROPHETA</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Noto+Sans+KR:wght@300;400;700&family=Share+Tech+Mono&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Stalinist+One&family=Wallpoet&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="PROPHETA/index.css">
+    <script src="PROPHETA/index.js"></script>
+
+</head>
+
+<body class="app-container">
+
+    <div class="scanlines"></div>
+
+    <!-- 사이드바 -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h1 class="brand-title font-eva">CONTRA</h1>
+            <p class="brand-subtitle font-system">VER 3.0 // SYSTEM ALL GREEN</p>
+        </div>
+
+        <!-- 데스크탑 메뉴 -->
+        <div class="desktop-menu">
+            <ul style="padding: 1rem; font-family: 'Share Tech Mono', monospace;">
+                <li><button onclick="switchPage('index')" class="nav-item active" data-target="index">00. MAIN</button>
+                </li>
+                <li><button onclick="switchPage('notice')" class="nav-item" data-target="notice">01. NOTICE</button>
+                </li>
+                <li><button onclick="switchPage('schedule')" class="nav-item" data-target="schedule">02.
+                        SCHEDULE</button></li>
+                <li><button onclick="switchPage('world')" class="nav-item" data-target="world">03. WORLDVIEW</button>
+                </li>
+                <li><button onclick="switchPage('system')" class="nav-item" data-target="system">04. SYSTEM</button>
+                </li>
+                <li><button onclick="switchPage('characters')" class="nav-item" data-target="characters">05.
+                        MPC / APPLICATION</button></li>
+            </ul>
+        </div>
+
+        <!-- 모바일 메뉴 버튼 (MD 이하 표시) -->
+        <div class="mobile-bar">
+            <span class="font-system" style="color: var(--monitor-green); font-size: 0.75rem;">AWAITING INPUT...</span>
+            <button id="mobile-menu-toggle" class="mobile-btn font-system">MENU</button>
+        </div>
+        <!-- 모바일 메뉴 드롭다운 -->
+        <div class="mobile-menu-dropdown" id="mobile-menu">
+            <ul class="font-system" style="font-size: 0.875rem;">
+                <li><button onclick="switchPage('index')" class="mobile-menu-link w-full text-left">00. MAIN</button>
+                </li>
+                <li><button onclick="switchPage('notice')" class="mobile-menu-link w-full text-left">01. NOTICE</button>
+                </li>
+                <li><button onclick="switchPage('schedule')" class="mobile-menu-link w-full text-left">02.
+                        SCHEDULE</button></li>
+                <li><button onclick="switchPage('world')" class="mobile-menu-link w-full text-left">03.
+                        WORLDVIEW</button></li>
+                <li><button onclick="switchPage('system')" class="mobile-menu-link w-full text-left">04. SYSTEM</button>
+                </li>
+                <li><button onclick="switchPage('characters')" class="mobile-menu-link w-full text-left">05.
+                        MPC / APPLICATION</button></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-footer">
+            <div class="status-box">
+                STATUS: NORMAL<br>
+                SYNC RATE: <span class="sync-rate">400%</span><br>
+                PHYSICS: UNSTABLE
+            </div>
+            &copy; 2026 PROJECT PROPHETA.
+        </div>
+    </nav>
+
+    <!-- 메인 콘텐츠 -->
+    <main class="main-content">
+
+        <!-- 00. INDEX PAGE -->
+        <section id="index" class="page-section active-section">
+            <div class="top-secret">
+                <div class="ts-kanji font-eva">極秘</div>
+                <div class="ts-text font-system">TOP SECRET</div>
+            </div>
+
+            <div class="hero-title-wrapper glitch-wrapper">
+                <h2 class="hero-title font-eva glitch-text" data-text="PROJECT PROPHETA">
+                    PROJECT PROPHETA
+                </h2>
+            </div>
+            <h3 class="hero-subtitle font-system">
+                NOV | TWT | ADULT(07) | 2W | GROWTH | 3344 → 4444
+            </h3>
+
+            <div class="hero-desc">
+                <p style="margin-bottom: 1rem;">
+                    추수꾼이 우리의 육체와 영혼을 거두러 쏟아지듯 밀려온다.
+                </p>
+                <p>
+                    우리는 씨앗이기를 거부하며 그들에게 맞설 것이다.
+                </p>
+            </div>
+
+            <button onclick="switchPage('notice')" class="btn-access font-system">
+                <span>Access Data</span>
+            </button>
+        </section>
+
+
+        <!-- 01. NOTICE PAGE (Changed to Worldview/Prose Style) -->
+        <section id="notice" class="page-section">
+            <div class="section-header">
+                <div class="section-tag font-system" style="background-color: var(--nerv-red);">NOTICE</div>
+                <h2 class="section-title font-eva">NOTICE</h2>
+            </div>
+
+            <div class="world-content">
+
+                <div class="quote-box">
+                    NOV | TWT | ADULT(07) | 2W | 성장 | 3344 → 4444 | 시리어스 | 전투 | 비윤리적 요소 <br><br>
+                    <strong>!Trigger Warning!</strong><br>
+                    국가적 단위의 폭력 | 외계 생명체 | 유혈과 폭력 | 사망과 살해
+
+                </div>
+
+                <p style="margin-bottom: 1.5rem;">
+                <p>
+                    들어가기에 앞서, 본 커뮤니티는 안노 히데아키 作 '<strong>신세기 에반게리온</strong>'시리즈와 넷플릭스 시리즈 '<strong>삼체</strong>'를 기반으로
+                    하였으나, 원작의 숙지를 필수로 요하지 않음을 밝힙니다.
+                </p>
+                </p>
+                <br><br>
+                <div style="margin-bottom: 2rem;">
+                    <span class="log-notice">RUNNING</span>
+                    <p style="margin-bottom: 0.8rem;">
+                        ① 총괄계 문의창구는 <a href="#"><strong>오픈카톡(링크)</strong></a>입니다.
+                    </p>
+
+                    <p style="margin-bottom: 0.8rem;">
+                        ② 2007년생부터 러닝이 가능합니다. 이후 출생자 대상 면접은 없습니다.
+                    </p>
+
+                    <p style="margin-bottom: 0.8rem;">
+                        ③ 본 커뮤니티의 세계관 및 스토리는 모두 허구로, 실제 지명이나 역사적 사건을 차용하였다고 해도 사실과 무관함을 밝힙니다.
+                    </p>
+
+                    <p style="margin-bottom: 0.8rem;">
+                        ④ 창작물과 현실의 구분에 혼동이 일 경우, 스토리 진행 상 발생할 수 있는 트리거 요소와 러너 기만 요소에 큰 불편을 느끼시는 경우에는 접수를 재고해주시기 바랍니다.
+                    </p>
+
+                    <p style="margin-bottom: 0.8rem;">
+                        ⑤ 개장 최소 인원은 12인입니다. 총 러닝 인원은 여러 요소에 따라 유동적일 수 있습니다.
+                    </p>
+
+                    <p style="margin-bottom: 0.8rem;">
+                        ⑥ 러닝 중 모든 종류의 고백, 캐릭터 간 살해 및 자살 로그와 그에 준하는 멘션 대화를 금지합니다. (이외 로그 게시 가능)
+                    </p>
+
+                    <p style="margin-bottom: 0.8rem;">
+                        ⑦ 러닝 전 후관 생성 기간이 있을 예정입니다. 후관 생성 및 러닝 중 캐릭터 간 조율 사항이 발생할 시, 총괄 계정을 포함하여 DM방을 개설해 주세요. (러너 간 1:1
+                        DM 금지)
+                    </p>
+
+                    <p style="margin-bottom: 0.8rem;">
+                        ⑧ N커 1캐/1커 N캐 러닝, 총괄이 확인할 수 없는 (빈 계정을 이용한)대화, 세계관 및 분위기에 큰 지장을 주는 행위, 합의되지 않은 성관계, 과한 섹스어필, 과한
+                        메타발언, 이모티콘 및 짤방 사용, 오너 이입 일체(역극 괄호체 내 오너 이입 및 캐릭터 계정 바이오에 '천천히 이어갑니다'등의 이입)타임라인에 커뮤니티 상황을 중계하거나
+                        본인의 캐릭터를 암시, 타 러너의 캐릭터를 추측하는 행위와 지인플·역지인플을 금지합니다.
+                    </p>
+
+                    <p style="margin-bottom: 0.8rem;">
+                        ⑨ 비매너 적발(경고 3회 이상) 및 <strong>30시간</strong> 동안 유의미한 활동(활동 시간만 잇기 위해 작성하는 무의미한 퍼블릭 멘션은 인정하지 않음)이
+                        없을 경우 커뮤니티에서 제명됩니다.
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <span class="log-notice">SYSTEM</span>
+
+                    <p style="margin-bottom: 0.8rem;">
+                        ① 스토리 및 전투 진행 시간은 <strong>22:00~24:00</strong>으로, 모든 전투를 필참하는 것을 요하진 않으나, <strong>전투에 2회(각 분기 별
+                            최종 전투 2회 필참) 이상
+                            참여</strong>가 불가능한 경우에는 접수를 재고해주시기 바랍니다.
+                    </p>
+
+                    <p style="margin-bottom: 0.8rem;">
+                        ② 총괄계 잠금/휴식 시간은 01:00~09:00 까지입니다. 이 시간 동안 총괄계에 접수된 문의/건의 사항은 그 이후에 처리되며, 새로운 퍼블릭 멘션을 올리는 것 또한
+                        지양해주시기 바랍니다. (기존 멘션 잇기는 가능)
+                    </p>
+
+                </div>
+
+
+                <div style="margin-top: 2rem;">
+                    <span class="log-notice">CHARACTER</span>
+                    <p style="margin-bottom: 0.8rem;">
+                        ① 관계가 깨끗하며, 최근 1년 이내 러닝 이력이 없는 캐릭터에 한해 재활용이 가능합니다.
+                    </p>
+
+                    <p style="margin-bottom: 0.8rem;">
+                        ② 겹임관을 허용하며, 동일 착장이 접수된 경우 먼저 접수한 러너에게 우선권이 부여됩니다. 2026년 기준 성인인 동양권 임관주만 사용 가능합니다. (연습생, 일반인,
+                        인플루언서 임관 불가능)
+                    </p>
+
+                    <p style="margin-bottom: 0.8rem;">
+                        ③ 성장 리뉴얼이 있을 예정입니다. 성장 후 프로필을 작성하기 어려우신 분들은 접수를 재고해주시기 바랍니다. 기간 내 성장 후 프로필 미작성자 또한 제명 대상입니다.
+                    </p>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <p style="margin-bottom: 0.8rem;">
+                        <strong>본 커뮤니티에 신청서를 접수하는 것을 '모든 공지사항 요소에 동의함'으로 간주합니다.</strong>
+                    </p>
+                </div>
+            </div>
+
+
+            </div>
+        </section>
+
+
+        <!-- 02. SCHEDULE PAGE (Linear Layout) -->
+        <section id="schedule" class="page-section">
+            <div class="section-header">
+                <div class="section-tag font-system" style="background-color: var(--nerv-orange);">TIMELINE</div>
+                <h2 class="section-title font-eva">COMMUNITY SCHEDULE</h2>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+
+                <div class="timeline-row color-orange">
+                    <div class="timeline-node">
+                        <div class="timeline-badge">2026. 03. 05</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-event-title font-eva">MPC 문서 공개</h4>
+                    </div>
+                </div>
+
+                <div class="timeline-row">
+                    <div class="timeline-node">
+                        <div class="timeline-badge">2026. 03. 14</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-event-title font-eva">신청서 접수 시작</h4>
+                        <p class="timeline-event-desc">00:00~</p>
+                    </div>
+                </div>
+
+                <div class="timeline-row">
+                    <div class="timeline-node">
+                        <div class="timeline-badge">2026. 03. 18</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-event-title font-eva">신청서 접수 마감</h4>
+                        <p class="timeline-event-desc">~24:00</p>
+                    </div>
+                </div>
+
+                <div class="timeline-row color-orange">
+                    <div class="timeline-node">
+                        <div class="timeline-badge">2026. 03. 19</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-event-title font-eva">합격자 발표 및 후관 생성</h4>
+                        <p class="timeline-event-desc">개장 전까지 후관 생성이 가능합니다.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-row">
+                    <div class="timeline-node">
+                        <div class="timeline-badge">2026. 03. 21</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-event-title font-eva">커뮤니티 개장</h4>
+                        <p class="timeline-event-desc">22:00 개장 예정</p>
+                    </div>
+                </div>
+
+
+                <div class="timeline-row color-orange">
+                    <div class="timeline-node">
+                        <div class="timeline-badge">2026. 03. 23</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-event-title font-eva">모의 전투 훈련</h4>
+                        <p class="timeline-event-desc">22:00~ (필참 아님)</p>
+                    </div>
+                </div>
+
+                <div class="timeline-row color-orange">
+                    <div class="timeline-node">
+                        <div class="timeline-badge">2026. 03. 24</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-event-title font-eva">전투 1</h4>
+                        <p class="timeline-event-desc">22:00~ (필참 아님)</p>
+                    </div>
+                </div>
+
+                <div class="timeline-row">
+                    <div class="timeline-node">
+                        <div class="timeline-badge">2026. 03. 25</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-event-title font-eva">전투 2 및 성장 전 러닝 아웃트로</h4>
+                        <p class="timeline-event-desc">22:00~ 필참 전투 및 성장 전 러닝 스토리 아웃트로</p>
+                    </div>
+                </div>
+
+                <div class="timeline-row color-orange">
+                    <div class="timeline-node">
+                        <div class="timeline-badge">2026. 03. 26 ~ 2026. 03. 28</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-event-title font-eva">안식일 및 성장 재정비 기간</h4>
+                        <p class="timeline-event-desc">성장 후 신청서 공지와 캐릭터 프로필 리뉴얼이 있을 예정입니다. (~03. 28 24:00)</p>
+                    </div>
+                </div>
+
+                <div class="timeline-row">
+                    <div class="timeline-node">
+                        <div class="timeline-badge">2026. 03. 29</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-event-title font-eva">성장 후 러닝 인트로</h4>
+                        <p class="timeline-event-desc">22:00~</p>
+                    </div>
+                </div>
+
+                <div class="timeline-row color-orange">
+                    <div class="timeline-node">
+                        <div class="timeline-badge">2026. 04. 01</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-event-title font-eva">전투 3</h4>
+                        <p class="timeline-event-desc">22:00~ (필참 아님)</p>
+                    </div>
+                </div>
+
+                <div class="timeline-row color-orange">
+                    <div class="timeline-node">
+                        <div class="timeline-badge">2026. 04. 02</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-event-title font-eva">전투 4</h4>
+                        <p class="timeline-event-desc">22:00~ (필참 아님)</p>
+                    </div>
+                </div>
+
+                <div class="timeline-row">
+                    <div class="timeline-node">
+                        <div class="timeline-badge">2026. 04. 03</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4 class="timeline-event-title font-eva">최종 전투 및 커뮤니티 아웃트로</h4>
+                        <p class="timeline-event-desc">22:00~ 필참 전투 및 성장 후 러닝 스토리 아웃트로</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 03. WORLDVIEW PAGE (With Timeline Added) -->
+        <section id="world" class="page-section">
+            <div class="section-header">
+                <div class="section-tag font-system" style="background-color: #9333ea;">ARCHIVE</div>
+                <h2 class="section-title font-eva">WORLDVIEW</h2>
+            </div>
+
+            <div class="world-content">
+                <p style="margin-bottom: 2rem;">
+                    <span class="drop-cap">Ⅰ. 삼체 문명과 그들의 ‘씨앗’</span>
+                    <br><br>
+                    항성이 세 개의 영향권에 속한 행성에 거주하는 인류의 문명을 ‘삼체 문명’이라 칭한다. 그 세 개의 항성은 움직임이 불규칙하기 때문에, 행성이 그의 영향을 받아
+                    극단적인 환경(극한의 빙하기, 극한의 건기 등)으로 만들어지기 때문에, 평온한 시기와 극한기가 번갈아 올 때마다 삼체 문명도 흥망을 반복했다. 삼체인들은 흥망이 거듭될수록 절멸을
+                    피해 최대한 인류가 존속할 수 있게 진화하기 시작했다. 그들은 행성에 적응해 살아가기 위해 온갖 지식과 기술을 동원했지만, 행성의 환경에 큰 영향을 미치는 세 항성의 이동 규칙을
+                    풀어낼 수는 없었다. 때문에, 그들은 다른 행성으로의 이주를 위해 영향권 밖의 행성 중 (지구를 포함하여) 적당한 곳을 물색하여 삼체 문명 인류의 정수인 ‘씨앗’들을 심어 두었다.
+                    <br><br>
+                    - 이는 6000만년 전의 이야기. 그 씨앗들이 지구로 떨어지며 박히는 충격 때문에 공룡이 멸종되었으나, 지구의 토대에 침투한 뒤 오랜 시간을 거치며 발아한 씨앗은 다양한 생명체로
+                    진화하기 시작했다. 그것이 바로 우리 ‘인간’의 기원이었다.
+
+                </p>
+                <br>
+                <p style="margin-bottom: 2rem;">
+                    <span class="drop-cap">Ⅱ. ‘추수꾼’과의 조우
+                    </span>
+                    <br><br>
+                    삼체인들 중에서도 더욱 생존에 특화된 형태로 진화한 몇몇 개체들은 선봉장을 자처하여 씨앗을 심었던 행성들로 정찰을 다니기 시작했다. 정찰을 하는 주 목적은, 아직 덜 발아한
+                    씨앗들을 틔우는 것이나 환경 조성의 점검이었다. 그들의 씨앗은 처음 심거나, 심었던 것을 틔울 땐 필히 큰 폭발(주로 화산 폭발)과 충격이 동반되기 때문에 폭발의 정도가 심하면 한
+                    인류 문명이
+                    절멸할 수준까지 가기도 했다. (예: 베수비오 화산 폭발로 인한 폼페이의 몰락) 그 외에 미확인 비행물체 등이 여러 번 발견되기도 했는데, 2095년에서야 천체물리학자
+                    심규희(NPC)에 의해 그것이 다른 행성에 사는 인류. 즉, 삼체인이라는 것이 밝혀졌다. 차후에 심규희가 그들을 삼체 문명에서 씨앗의 산물을 거두러 오는 ‘추수꾼’이라 지칭하였다.
+                    그러나 그들이 지구에 다가올 때마다 (삼체인의 접근에 활성화된 잔여 씨앗들이 발아함에 의해) 막대한 피해를 입었고, 피해를 줄이기 위해 추수꾼들에게 대항할 한국-미국-일본을
+                    주축으로
+                    하는 국제적 규모의 특무조직 ‘<strong>CONTRA</strong>('대항’이라는 뜻)’가 2097년 출범하였다.
+                </p>
+
+                <br>
+                <p style="margin-bottom: 2rem;">
+                    <span class="drop-cap">Ⅱ-1. 씨앗은 우리 안에도 있다 (극비)
+                    </span>
+                    <br><br>
+                    <strong>※주의※ <br>
+                        위 항목은 극비문서 중 일부입니다.
+                    </strong>
+                    <br><br>
+
+                    대외적으로 알려지지 않은 사항. 삼체인의 ‘씨앗’에서 말미암아 진화한 인류 또한 씨앗 그 자체라고 볼 수 있다. 콘트라(CONTRA)는 또한 이에 대해서도 연구 중인데, 연구의
+                    결과로 밝혀진 사실이나 세울 수 있는 가설에는… <br><br>
+
+                    1. <strong>지구인 또한 근본적으로는 삼체인</strong>이며, 언젠가 때가 되면 삼체인이 찾아와 자신들 문명의 새로운 토대를 닦기 위해 <strong>지구를
+                        정복</strong>할 것이다. <br>
+                    2. 지구인은 결국 ‘<strong>씨앗</strong>’이기 때문에, 삼체인에게 거역할 수 없다. DNA 차원에 새겨진 명령처럼, 삼체인은 자신의 자손과 (혹은 산물과) 다름
+                    없는 <strong>지구인을 마음대로 조종할 수
+                        있다.</strong> <br>
+                    3. 사람에 따라 <strong>예외적으로</strong> 삼체인의 명령으로부터 자유로울 수도 있음. (자세한 사항은 챕터Ⅲ 참고) <br><br>
+
+                    위 3번 가설에 해당하는 연구 결과를 활용하여, 콘트라는 삼체인에 대항할 가장 효과적인 병기를 개발하기에 이르렀다.
+
+                </p>
+
+
+                <br>
+                <p style="margin-bottom: 2rem;">
+                    <span class="drop-cap">Ⅱ-2. 추수꾼들의 목록 (극비)
+                    </span>
+                    <br><br>
+                    <strong>※주의※ <br>
+                        위 항목은 극비문서 중 일부입니다.
+                    </strong>
+                    <br><br>
+
+                    2092년. 원인을 알 수 없는(삼체인(=추수꾼)의 접근으로 인한 씨앗의 발아가 원인임이 밝혀지기 전이다.) 대폭발이 서해상에서 발생. 대한민국 인구의 절반 이상이 사망하는 피해를
+                    입은 뒤 진상규명에 연이어 실패하던 중, 2095년이 되어서야 천체물리학자 심규희에 의해 삼체 문명이 원인이라는 진상이 밝혀졌다. 이후부터 전세계에서 관측된 대폭발 관련 기록들을
+                    수집해 지금까지 지구에 접근한 추수꾼들의 수와 그 접근 시기를 예측하기에 이르렀다. 그 결과, 콘트라에서 임의로 정리해 발표한 추수꾼들의 과거 출현/출현 예상 목록은 아래와 같다.
+
+                </p>
+
+                <!-- 추가된 타임라인 섹션 (Timeline Section Added Inside Worldview) -->
+                <div style="margin-top: 4rem; margin-bottom: 1rem; border-top: 1px solid #333; padding-top: 2rem;">
+                    <h3 class="font-eva" style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">추수꾼 출몰 타임라인</h3>
+                </div>
+                <br>
+
+                <div class="timeline-container" style="padding-top: 0;">
+                    <div class="timeline-line"></div>
+
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">6000만년 전</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">첫번째 추수꾼, 구안나 (GU. AN. NA.)</h4>
+                            <p class="timeline-event-desc">충돌의 여파로 공룡이 멸종하였다.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">AD 79년</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">두번째 추수꾼, 마시타브바 (MASH. TAB. BA.)</h4>
+                            <p class="timeline-event-desc">베수비오 화산 폭발의 원인, 폼페이 문명의 종말을 초래했다.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">1783년</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">세번째 추수꾼, 두브 (DUB)</h4>
+                            <p class="timeline-event-desc">아이슬란드 라키 화산의 대규모 분출이 일어났다.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">1883년</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">네번째 추수꾼, 우르굴라 (UR. GULA.)</h4>
+                            <p class="timeline-event-desc">순다해협에 있던 크라카타우 화산의 대폭발로 최악의 쓰나미가 발생하였다.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">1986년</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">다섯번째 추수꾼, 아브신 (AB. SIN.)</h4>
+                            <p class="timeline-event-desc">니오스 호수 내의 대규모 분출로, 약 10만~30만 톤의 CO2 가스 구름이 방출되었다.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">2010년</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">여섯번째 추수꾼, 지바안나 (ZI. BA. AN. NA.)</h4>
+                            <p class="timeline-event-desc">아이슬란드의 에이야퍄들라외퀴틀(Eyjafjallajökull) 화산 폭발로 인한 화산재 구름 발생으로 최악의
+                                항공 결항 사태가 벌어졌다.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">2092년</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">일곱번째 추수꾼, 기르타브 (GIR. TAB.)</h4>
+                            <p class="timeline-event-desc">서해상에서 일어난 원인 불명의 대폭발로 대한민국 인구의 80% 이상이 사망하였다.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">2095년</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">삼체인과 '추수꾼'의 정의</h4>
+                            <p class="timeline-event-desc">천체물리학자 심규희가 ‘추수꾼’이 삼체인임을 밝혀내고 그들을 ‘추수꾼’이라고 정의내렸다.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">2097년</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">CONTRA 출범</h4>
+                            <p class="timeline-event-desc">본격적인 추수꾼과의 대응을 위해 한국/미국/일본을 주축으로 국제 특무조직 ‘CONTRA’가 출범하였다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">2098년</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">선주특별시 5개년 개발 계획 착수</h4>
+                            <p class="timeline-event-desc">추수꾼의 습격에 맞서 국민들의 안전을 보장하는 군사적 요충지로서의 요새도시 '선주특별시'개발을 위한 준비에
+                                들어갔다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">2107년</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">PROJECT PROPHETA</h4>
+                            <p class="timeline-event-desc">선주특별시와 CONTRA 한국지부의 오랜 연구 끝에 추수꾼의 대항마 양성을 위한 '프로젝트 프로페타'의
+                                초읽기에 들어섰다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">2124년</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">PROJECT PROPHETA 초대 파일럿 선발</h4>
+                            <p class="timeline-event-desc">선주특수중고등학교 재학생들을 대상으로 한 초대 파일럿 선발에서 10여 명의 파일럿이 임명되었으나, 실전
+                                훈련에서 파일럿 '유가원'이 원인 불명에 가사 상태에 빠지는 사건이 벌어졌다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">2126년 내로 예상</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">여덟번째 추수꾼, 파빌 (PA. BIL.)</h4>
+                            <p class="timeline-event-desc">SYSTEM : UNKNOWN</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">UNPREDICTABLE</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">아홉번째 추수꾼, 수후르마시 (SUHUR. MASH.)</h4>
+                            <p class="timeline-event-desc">SYSTEM : UNKNOWN</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">UNPREDICTABLE</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">열번째 추수꾼, 구 (GU)</h4>
+                            <p class="timeline-event-desc">SYSTEM : UNKNOWN</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">UNPREDICTABLE</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">열한번째 추수꾼, 심마흐 (SIM. MAH.)</h4>
+                            <p class="timeline-event-desc">SYSTEM : UNKNOWN</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-node">
+                            <div class="timeline-badge">UNPREDICTABLE</div>
+                        </div>
+                        <div class="timeline-content">
+                            <h4 class="timeline-event-title font-eva">열두번째 추수꾼, 쿠말 (KU.MAL.)</h4>
+                            <p class="timeline-event-desc">SYSTEM : UNKNOWN</p>
+                        </div>
+                    </div>
+                </div>
+
+                <br><br>
+
+                <br>
+                <p style="margin-bottom: 2rem;">
+                    <span class="drop-cap">Ⅲ. ‘기억인자’와 프로페타(PROPHETA) (극비)
+                    </span>
+                    <br><br>
+                    <strong>※주의※ <br>
+                        위 항목은 극비문서 중 일부입니다.
+                    </strong>
+
+                <div class="quote-box">
+                    "중추기억이 살아있다면, 그 어떤 상황에서도 ‘나’는 ‘나’일 수 있다."
+                </div>
+
+                한국/일본/미국 세 나라의 학자 다섯 명이 참여한 ‘<strong>기억인자</strong>’ 연구의 핵심 전제. 모든 사람에게는 전 생애를 관통하는 중요한 기억인
+                ‘<strong>중추기억</strong>’이 있고, 그것으로 구성된 기억인자가
+                삼체인들의 특수한 간섭을 막는 일종의 ‘<strong>방화벽</strong>’을 세워 정신 교란으로 인한 조종을 당하지 않는다는 이론이다. 이론의 주창 자체는 2096년부터 이루어졌으나,
+                실제의 검증은 2099년,
+                CONTRA에서 과거 대한민국을 강타했던 추수꾼의 잔해 일부를 입수, 그를 바탕으로 실험을 수행한 뒤부터 이루어졌다. 이후 8년의 추가 연구 끝에 본격적으로 추수꾼에 대항할 범국가적
+                사업을 시작했다. 이른바 프로젝트 ‘<strong>프로페타</strong>(propheta, 선지자.)’. 자신이 누구인지 그 누구보다 먼저 깨달은 자의 이름이라
+                칭하며 추수꾼에게 특화된 병기를
+                개발했다.
+                <br>
+                <div class="quote-box">
+                    프로페타 기체는 <strong>인간형 로봇</strong>이 기본 형태로, 기억 인자가 제일 활발한 활동을 보일 청소년기. 한국 나이 17~19세 <strong>청소년들 중에서
+                        중추 기억이 강한 이들</strong>을 프로페타에 탑승할 <strong>파일럿</strong>으로
+                    선발하여 추수꾼과 대항케 한다.
+                </div>
+                위 내용을 골자로 전국적인 규모의 장기 프로젝트인 중추기억ㆍ기억인자 수집 사업에 돌입했다. 2107년부터 태어난 아이들이 12개월을 맞을 때, 코를 통해 삽입해 뇌와 연결하는 장치로
+                중추기억 정보값을 수집해 기억인자의 방화벽을 증폭시키는 칩을 일괄적으로 심게 되었다. 그리고 그 아이들이 14세가 되던 2121년 초. 중추기억의 정보값을 토대로 프로페타 파일럿
+                후보생들을 처음 선발했다. 그들을 따로 모아 교육하는 기관을(대외적으론 졸업 후 군공무원으로의 공채가 보장된 특수목적 중고등학교 개념으로 알려져 있다.) 만들어 관리하기 시작했다. 그리고
+                2107~2109년까지의 출생자들로 구성된 프로페타 파일럿들이 올 2126년 내로 접근할 것으로 예상되는 추수꾼과의 첫 대면을 앞두고 있다.
+                </p>
+
+
+                <br><br>
+                <p style="margin-bottom: 2rem;">
+                    <span class="drop-cap">+α. 최초의 선지자(프로페타)-NPC 유가원
+                    </span>
+                </p>
+
+                <br><br>
+
+                <div class="char-grid1">
+                    <!-- Char 1 -->
+                    <a href="#" onclick="alert('데이터베이스 접속 불가: 보안 등급이 낮습니다.'); return false;" class="char-card">
+                        <img src="https://i.pinimg.com/736x/d0/78/72/d07872daea22e5f5b9509c9a41e8e028.jpg"
+                            alt="NPC 1 | 유가원" class="char-img">
+                        <div class="char-info">
+                            <h3 class="char-name font-eva">유가원</h3>
+                            <p class="char-role font-system">2107년생. 19세(2126년 기준). <br>
+                                166cm, 슬림하며 탄탄한 체형. <br>
+                                #인정욕구 #말수가 적은 #뒤에서 묵묵히</p>
+                            <div class="char-bar" style="background-color: var(--nerv-red);"></div>
+                        </div>
+                    </a>
+                </div>
+
+
+                <div class="quote-box">
+                    “선생님. 저, 이번엔 진짜 잘했어요?”
+                </div>
+
+                <p>
+                    <br>
+
+                    2124년에 최종 선발된 프로페타 파일럿 중 수석. <br>
+                    2124년 6월, 2년 내로 접촉할 예정이라고 판단된 추수꾼에 대항키 위한 훈련의 막바지 작업 중 원인 불명의 오류로 인해 프로페타 기체 내에서 가사상태에 빠졌다. <br>
+                    프로페타 기체와 함께 최소한의 생명유지장치로 연명하고 있으나 현재까지 의식이 없다. <br>
+                    이후 2124년 한 해 동안 모든 프로페타 실전 훈련이 중지되었었다. <br><br>
+
+                    악바리. 독종. 선주특수고등학교 내에선 모르는 이가 없었다. 꼭 파일럿이 될 거야. 외치고 다니던 애. 매일같이 훈련장에 출석했다. (가사상태에 빠졌던 그날도, 멀쩡히
+                    웃으며
+                    들어갔건만…) 프로페타 파일럿을 콘트라로 향하기 위한 필수적인 수순으로 여기고 있는 듯했다. 콘트라 관계자 중에 꼭 만나야 하는 사람이라도 있는 것일까? <br><br>
+
+                    ※ NPC 유가원과의 관계 설정 시, 유가원이 훈련 중 가사상태에 빠지던 순간의 현장에 있어 그 장면을 직접 보았다는 설정이 필수로 전제됩니다.
+                </p>
+
+
+                <br><br>
+                <p style="margin-bottom: 2rem;">
+                    <span class="drop-cap">Ⅳ. 콘트라(CONTRA) 한국지부
+                    </span>
+                    <br><br>
+                    2097년 출범한 콘트라의 한국지부 현 수뇌부 3인방 (NPC - 러닝 캐릭터 빌딩 시, 관계설정이 불가능한 NPC들입니다.)
+                </p>
+
+                <div class="char-grid1">
+                    <!-- Char 1 -->
+                    <a href="#" class="char-card">
+                        <img src="https://i.pinimg.com/1200x/d9/6c/4b/d96c4b1c3ee36a0f1a606be7e7941acf.jpg"
+                            alt="NPC 2 | 심규희" class="char-img">
+                        <div class="char-info">
+                            <h3 class="char-name font-eva">심규희</h3>
+                            <p class="char-role font-system">56세 (2070~) 여성 <br>
+                                천체물리학/응용물리학 박사 <br>
+                                전)S대학교 물리학과 부교수<br>
+                                현)콘트라 한국지부 기술 감수 총책임자<br>
+                                현)선주특수중고등학교 이사장
+                            <div class="char-bar" style="background-color: var(--nerv-red);"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="char-grid1">
+                    <!-- Char 1 -->
+                    <a href="#" onclick="alert('데이터베이스 접속 불가: 보안 등급이 낮습니다.'); return false;" class="char-card">
+                        <img src="https://mdl.artvee.com/sftb/601919sl.jpg" alt="NPC 3 | 원" class="char-img">
+                        <div class="char-info">
+                            <h3 class="char-name font-eva">원(源)</h3>
+                            <p class="char-role font-system">나이, 성별 불명 <br>
+                                기억인자 가설을 세우고 증명해낸 연구진 중 하나, 의학/생명공학 박사 외 알려진 것 없음 <br>
+                                콘트라 한국지부 회장
+                            </p>
+                            <div class="char-bar" style="background-color: var(--nerv-red);"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="char-grid1">
+                    <!-- Char 1 -->
+                    <a href="#" class="char-card">
+                        <img src="https://i.pinimg.com/1200x/69/b0/af/69b0aff15b39e80a52e7c0884efacb9c.jpg"
+                            alt="NPC 4 | 이언" class="char-img">
+                        <div class="char-info">
+                            <h3 class="char-name font-eva">이언</h3>
+                            <p class="char-role font-system">35세 (2091~) 남성 <br>
+                                S대학교 물리학과 학사 <br>
+                                정보보안학 석사 <br>
+                                전)육군 현역부사관(중사 전역-개인사정) <br>
+                                현)콘트라 한국지부 보안총책임자 <br>
+                                현)선주특수고등학교 행정실장
+                            </p>
+                            <div class="char-bar" style="background-color: var(--nerv-red);"></div>
+                        </div>
+                    </a>
+                </div>
+
+                <br><br>
+                <p style="margin-bottom: 2rem;">
+                    <span class="drop-cap">Ⅴ. 선주특수중고등학교
+                    </span>
+                    <br><br>
+
+                    1200만명을 겨우 넘긴 생존인구. 대한민국 재건과 전령에 의한 피해를 줄이기 위해 콘트라 한국지부는 2098년, 선주특별시 (구 충청권역) 개발 5개년 계획을 착수하였다. 그리고
+                    지금, 2126년. 어느덧 계획된 요새도시로서의 역할을 28년째 해오고 있다. 선주특별시의 프로페타 파일럿 육성 기관인 선주특수중고등학교는 2124년, 의문의 사건(유가원
+                    가사상태 사건) 이후 학생들 관리에 힘쓰며 같은 사태가 또다시 발생하지 않도록 심혈을 기울이고 있으나… 불안감을 이기지 못한 학생과 학부모들의 요구로 많은 수의 학생들이
+                    이탈하였고, 현재 남은 학생 수 30여 명. 고등학교 1학년 때 치뤄지는 공채(파일럿 선발)에서 전수 통과되어, 우려의 목소리도 들려오고 있다. 이렇게 된 이상. 학생들은 그간
+                    받아온 교육과 훈련의 결과를 실전에서 보여주는 수밖에 없다. <br><br>
+                    <strong>(2126년 현재 기준 : 초대 기수 - 19세 / 2기 - 18세 / 3기 - 17세)</strong>
+
+                </p>
+
+                <br><br>
+                <p style="margin-bottom: 2rem;">
+                    <span class="drop-cap">666. 파탈리스트(fatalist), 달의 뒷면처럼
+                    </span>
+                    <br><br>
+
+                    특무조직 콘트라 한국지부는 유가원 가사상태 사건 이후 전령 대항 계획에 잠시 주춤하는 듯 보였다. 그 사이, 누구보다도 초조한 움직임을 보이던 한 단체가 있다. 유수의 학자들 혹은
+                    정재계 인사들로 이루어진 비밀결사 ‘<strong>파탈리스트</strong>(fatalist, 운명론자.)’의 일원들은 프로페타 프로젝트를 역이용하여
+                    소생불가한 지구와 인류를 대신할 새로운 물결을 맞이하고자 ‘<strong>삼체인의 지구 접근과 지배는 당연한 수순이며 지구인의 거스를 수 없는 운명이다.</strong>’ 라고
+                    주창한다. 아직은 이빨을 드러내지
+                    않은 것처럼 보이지만… 언제 본심을 밝힐지 예측 불가능이다.
+                    <br><br>
+
+                    <strong>※ 이후 세계관은 개장 후 스토리 진행을 통해 공개될 예정입니다.</strong>
+
+                </p>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- 04. SYSTEM PAGE (Changed to Worldview/Prose Style) -->
+        <section id="system" class="page-section">
+            <div class="section-header">
+                <div class="section-tag font-system" style="background-color: #3b82f6;">MECHANICS</div>
+                <h2 class="section-title font-eva">SYSTEM (아직 안 짰음)</h2>
+            </div>
+
+            <div class="world-content">
+                <p style="margin-bottom: 1.5rem;">
+                    <span class="drop-cap">본</span> 프로젝트의 생존 가능성을 높이기 위해 분석된 주요 기술 및 현상에 대한 보고서이다. 이 기술들은 인류의 과학 기술을 초월해
+                    있으며, 적대 세력의 핵심 전력이자 동시에 우리의 유일한 대항 수단이기도 하다.
+                </p>
+
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; color: #3b82f6; margin-bottom: 0.5rem; font-weight: bold;">A.T. FIELD
+                        (Absolute Terror Field)</h3>
+                    <p>
+                        '절대 공포의 영역' 혹은 '마음의 벽'이라 불린다. 모든 생명체가 가지고 있는 자아의 경계선을 물리적으로 형상화한 것이다. 사도와 에반게리온은 이 필드를 전개하여 재래식
+                        병기의 공격을 무력화한다. 이론상 이를 뚫을 수 있는 것은 동일한 파장의 A.T. 필드를 중화시키는 방법, 혹은 삼체의 '물방울'이 가진 압도적인 질량 공격뿐이다.
+                    </p>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="font-size: 1.25rem; color: #22c55e; margin-bottom: 0.5rem; font-weight: bold;">SOPHON
+                        (지자)</h3>
+                    <p>
+                        삼체 문명이 지구로 보낸 양성자 크기의 슈퍼컴퓨터. 양성자를 2차원으로 펼쳐 회로를 새긴 후 다시 11차원으로 접어 만든 기술의 결정체다. 지자는 빛의 속도로 이동하며
+                        지구의 모든 입자가속기 실험 결과를 교란한다. 이로 인해 인류의 기초 과학은 봉쇄되었으며, 우리는 더 이상 미시 세계의 비밀을 밝혀낼 수 없게 되었다.
+                    </p>
+                </div>
+
+                <div class="quote-box" style="border-color: #eab308; background: rgba(50, 50, 20, 0.3);">
+                    "주여, 당신의 침묵이 의미하는 바는 무엇입니까? 면벽자(Wallfacer)들은 당신의 침묵 속에서 기만술을 계획합니다."
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h3 style="font-size: 1.25rem; color: #ef4444; margin-bottom: 0.5rem; font-weight: bold;">LCL (Link
+                        Connect Liquid)</h3>
+                    <p>
+                        엔트리 플러그 내부에 주입되는 붉은 액체. 폐에 직접 산소를 공급하는 역할을 하며, 파일럿과 에반게리온 사이의 신경 접속을 매개한다. 냄새는 피 비린내와 비슷하다고
+                        전해진다. 이것은 태초의 바다, 생명이 태어나기 전의 원시 수프와 동일한 성분으로 추정된다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 05. CHARACTERS PAGE -->
+        <section id="characters" class="page-section">
+            <div class="section-header">
+                <div class="section-tag font-system" style="background-color: #e5e7eb;">PERSONNEL</div>
+                <h2 class="section-title font-eva">MPC / APPLICATION</h2>
+            </div>
+
+            <div class="char-grid">
+                <!-- Char 1 -->
+                <a href="#" class="char-card">
+                    <img src="https://placehold.co/400x600/1a1a1a/e60000/png?text=PROTAGONIST" alt="Character 1"
+                        class="char-img">
+                    <div class="char-info">
+                        <h3 class="char-name font-eva">이카리 신지</h3>
+                        <p class="char-role font-system">THE THIRD CHILD // PILOT</p>
+                        <div class="char-bar" style="background-color: var(--nerv-red);"></div>
+                    </div>
+                </a>
+
+                <!-- Char 2 -->
+                <a href="#" class="char-card">
+                    <img src="https://placehold.co/400x600/1a1a1a/00f0ff/png?text=SCIENTIST" alt="Character 2"
+                        class="char-img">
+                    <div class="char-info">
+                        <h3 class="char-name font-eva">예원제</h3>
+                        <p class="char-role font-system">ASTROPHYSICIST // TRAITOR</p>
+                        <div class="char-bar" style="background-color: #3b82f6;"></div>
+                    </div>
+                </a>
+
+                <!-- Char 3 -->
+                <!-- <a href="#" class="char-card">
+                    <img src="https://placehold.co/400x600/1a1a1a/ff9d00/png?text=COMMANDER" alt="Character 3"
+                        class="char-img">
+                    <div class="char-info">
+                        <h3 class="char-name font-eva">카츠라기 미사토</h3>
+                        <p class="char-role font-system">TACTICAL OPERATIONS</p>
+                        <div class="char-bar" style="background-color: var(--nerv-orange);"></div>
+                    </div>
+                </a>
+            </div> -->
+
+                <div class="join-area">
+                    <a href="#" class="join-btn-wrapper">
+                        <button class="btn-join font-eva">
+                            문의사항 (FAQ)
+                        </button>
+                    </a>
+                </div>
+
+                <div class="join-area">
+                    <a href="#" class="join-btn-wrapper">
+                        <button class="btn-join font-eva">
+                            프로젝트 참여하기 (신청서 양식)
+                        </button>
+                    </a>
+                    <p class="join-warn font-system">WARNING: NO TURNING BACK</p>
+                </div>
+
+                <!-- 
+            <div class="join-area">
+                <div class="join-btn-wrapper">
+                    <button class="btn-join font-eva">
+                        프로젝트 참여하기 (신청서 양식)
+                    </button>
+                </div>
+                <p class="join-warn font-system">WARNING: NO TURNING BACK</p>
+            </div> -->
+        </section>
+
+    </main>
+</body>
+
+</html>

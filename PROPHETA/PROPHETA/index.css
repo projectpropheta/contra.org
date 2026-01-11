@@ -1,0 +1,767 @@
+@charset "utf-8";
+
+/* 프로페타 css */
+
+/* --- 1. RESET & VARIABLES --- */
+:root {
+    --nerv-red: #e60000;
+    --nerv-dark-red: #8a0000;
+    --nerv-orange: #ff9d00;
+    --monitor-green: #39ff14;
+    --deep-space: #050505;
+    --hex-grid: #1a1a1a;
+    --text-main: #e0e0e0;
+    --text-muted: #888888;
+    --border-color: #333333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--deep-space);
+    color: var(--text-main);
+    font-family: 'Noto Sans KR', sans-serif;
+    overflow-x: hidden;
+    /* 가로 스크롤 방지 */
+    background-image:
+        linear-gradient(rgba(5, 5, 5, 0.9), rgba(5, 5, 5, 0.9)),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill-opacity='0.1' fill='%2339ff14' fill-rule='evenodd'/%3E%3C/svg%3E");
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+strong {
+    color: #e60000;
+}
+
+/* 폰트 유틸리티 */
+.font-eva {
+    font-family: "Wallpoet", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    transform: scaleY(1.1);
+}
+
+.font-system {
+    font-family: 'Share Tech Mono', monospace;
+}
+
+/* --- 2. LAYOUT --- */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* --- 3. SIDEBAR --- */
+.sidebar {
+    width: 100%;
+    background-color: black;
+    border-bottom: 1px solid #333;
+    flex-shrink: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    height: auto;
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--nerv-dark-red);
+    background-color: black;
+}
+
+.brand-title {
+    font-size: 1.875rem;
+    color: var(--nerv-red);
+    letter-spacing: 0.1em;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.brand-subtitle {
+    font-size: 0.6rem;
+    color: var(--monitor-green);
+    letter-spacing: 0.1em;
+    margin-top: 0.5rem;
+}
+
+.desktop-menu {
+    display: none;
+}
+
+/* Mobile default */
+
+/* 메뉴 버튼 스타일 */
+.nav-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem 1.5rem;
+    border-left: 2px solid transparent;
+    font-size: 1.125rem;
+    position: relative;
+    transition: all 0.3s ease;
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+    margin-bottom: 0.5rem;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background-color: var(--nerv-red);
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.nav-item.active::before {
+    content: 'SELECTED';
+    position: absolute;
+    top: -10px;
+    right: 0;
+    font-size: 0.6rem;
+    color: var(--monitor-green);
+}
+
+/* 모바일 메뉴 */
+.mobile-bar {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-btn {
+    color: var(--nerv-red);
+    border: 1px solid var(--nerv-red);
+    padding: 0.25rem 0.75rem;
+}
+
+.mobile-btn:hover {
+    background: var(--nerv-red);
+    color: black;
+}
+
+.mobile-menu-dropdown {
+    display: none;
+    background: black;
+    border-bottom: 1px solid var(--nerv-dark-red);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+}
+
+.mobile-menu-link {
+    display: block;
+    padding: 1rem;
+    border-bottom: 1px solid #222;
+}
+
+.mobile-menu-link:hover {
+    background: var(--nerv-dark-red);
+    color: white;
+}
+
+.sidebar-footer {
+    display: none;
+    padding: 1.5rem;
+    border-top: 1px solid #333;
+    font-size: 0.5rem;
+    color: #666;
+}
+
+.status-box {
+    border: 1px solid #444;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* --- 4. MAIN CONTENT AREA --- */
+.main-content {
+    flex: 1;
+    position: relative;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 6rem 1rem 1rem 1rem;
+    /* Top padding for fixed mobile header */
+    scroll-behavior: smooth;
+}
+
+/* --- 5. PAGE SECTIONS COMMON --- */
+.page-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 2.5rem;
+}
+
+.page-section.active-section {
+    display: block;
+    opacity: 1;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 1rem;
+}
+
+.section-tag {
+    background-color: var(--nerv-red);
+    /* Default color, specific overrides below */
+    color: black;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+    margin-right: 1rem;
+    font-size: 0.75rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: white;
+}
+
+/* --- 6. INDEX PAGE --- */
+#index {
+    height: 100%;
+    display: flex;
+    /* flex hidden by default logic, but when active-section adds block, we need flex for centering */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 0;
+}
+
+/* Override display:block for index when active to maintain flex layout */
+#index.active-section {
+    display: flex;
+}
+
+.top-secret {
+    display: none;
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    text-align: right;
+}
+
+.ts-kanji {
+    font-size: 3rem;
+    color: #fff;
+    opacity: 0.2;
+}
+
+.ts-text {
+    color: var(--nerv-red);
+    font-size: 0.75rem;
+    letter-spacing: 0.5em;
+    /* margin-top: 0.3rem; */
+}
+
+.hero-title-wrapper {
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.hero-title {
+    font-size: 3rem;
+    color: white;
+    letter-spacing: -0.05em;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--nerv-red);
+    /* Red */
+    letter-spacing: 0.3em;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+.hero-desc {
+    max-width: 42rem;
+    color: var(--text-muted);
+    font-family: serif;
+    line-height: 2;
+    margin-bottom: 3rem;
+    font-size: 0.875rem;
+    padding: 0 1rem;
+}
+
+/* Access Button */
+.btn-access {
+    position: relative;
+    padding: 0.75rem 2rem;
+    background: transparent;
+    border: 1px solid var(--nerv-red);
+    color: var(--nerv-red);
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.btn-access span {
+    position: relative;
+    z-index: 10;
+}
+
+.btn-access::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--nerv-red);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+    z-index: 1;
+}
+
+.btn-access:hover {
+    color: white;
+}
+
+.btn-access:hover::after {
+    transform: translateX(0);
+}
+
+/* Glitch Effect */
+.glitch-text {
+    position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--deep-space);
+}
+
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -1px 0 red;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    left: -2px;
+    text-shadow: -1px 0 blue;
+    clip: rect(85px, 550px, 140px, 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% {
+        clip: rect(11px, 9999px, 32px, 0);
+    }
+
+    100% {
+        clip: rect(89px, 9999px, 96px, 0);
+    }
+}
+
+@keyframes glitch-anim-2 {
+    0% {
+        clip: rect(66px, 9999px, 18px, 0);
+    }
+
+    100% {
+        clip: rect(10px, 9999px, 126px, 0);
+    }
+}
+
+/* --- 7. SCHEDULE PAGE (Timeline - Linear Left Style) --- */
+.timeline-container {
+    position: relative;
+    padding: 2.5rem 0;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 2rem;
+    /* Fixed to the left */
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--nerv-red);
+}
+
+.timeline-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 4rem;
+    position: relative;
+    padding-left: 5rem;
+    /* Space for line and dots */
+}
+
+.timeline-node {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+/* The Badge (Date) */
+.timeline-badge {
+    display: inline-block;
+    background: black;
+    border: 2px solid var(--nerv-red);
+    color: var(--nerv-red);
+    font-size: 0.85rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+/* The dot on the timeline line */
+.timeline-row::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--deep-space);
+    border: 2px solid var(--nerv-red);
+    border-radius: 50%;
+    top: 0.5rem;
+    /* Align roughly with badge/title */
+    left: calc(2rem - 7px);
+    /* Center on the 2rem line */
+    z-index: 10;
+}
+
+.timeline-content {
+    /* No specific styles needed, just block flow */
+}
+
+.timeline-event-title {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-event-desc {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+/* Variant colors for badges/dots */
+.timeline-row.color-orange .timeline-badge {
+    border-color: var(--nerv-orange);
+    color: var(--nerv-orange);
+}
+
+.timeline-row.color-orange::after {
+    border-color: var(--nerv-orange);
+}
+
+.timeline-row.color-green .timeline-badge {
+    border-color: var(--monitor-green);
+    color: var(--monitor-green);
+}
+
+.timeline-row.color-green::after {
+    border-color: var(--monitor-green);
+}
+
+/* --- 8. WORLD / NOTICE / SYSTEM COMMON STYLE (Prose) --- */
+.world-content {
+    max-width: 48rem;
+    margin: 0 auto;
+    color: #d1d5db;
+    font-family: serif;
+    line-height: 2;
+    font-size: 1rem;
+}
+
+.world-content img {
+    margin: 0 auto;
+}
+
+.drop-cap {
+    float: left;
+    font-size: 2.3rem;
+    line-height: 0.8;
+    margin-right: 0.5rem;
+    color: #ff9d00;
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight: 800;
+}
+
+.quote-box {
+    border-left: 4px solid var(--nerv-red);
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin: 2rem 0;
+    background: rgba(30, 30, 30, 0.5);
+    font-style: italic;
+}
+
+/* Notice Specific (Log style within prose) */
+.log-notice {
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--nerv-orange);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.2rem;
+    width: fit-content;
+}
+
+/* --- 9. CHARACTERS PAGE --- */
+.char-grid {
+    display: block;
+    width: 80%;
+    /* grid-template-columns: 1fr;
+    gap: 1.5rem; */
+    margin: 0 auto 4rem;
+}
+
+.char-grid1 {
+    display: block;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.char-card {
+    display: block;
+    height: 24rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.char-card:hover {
+    border-color: var(--monitor-green);
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.2);
+}
+
+.char-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(120%);
+    transition: filter 0.3s;
+}
+
+.char-card:hover .char-img {
+    filter: grayscale(0%) contrast(100%);
+}
+
+.char-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: linear-gradient(to top, black, transparent);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.char-card:hover .char-info {
+    opacity: 1;
+}
+
+.char-name {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.25rem;
+}
+
+.char-role {
+    font-size: 0.875rem;
+    color: #d1d5db;
+}
+
+.char-bar {
+    width: 2rem;
+    height: 4px;
+    margin-top: 0.5rem;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+}
+
+.char-card:hover .char-bar {
+    transform: scaleX(1);
+}
+
+.join-area {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.join-btn-wrapper {
+    display: inline-block;
+    padding: 4px;
+    border: 1px solid #440000;
+    animation: pulse 2s infinite;
+}
+
+.btn-join {
+    background-color: var(--nerv-red);
+    color: black;
+    font-size: 1.25rem;
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-join:hover {
+    background-color: #ccc;
+    color: var(--nerv-red);
+}
+
+.join-warn {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* --- 10. RESPONSIVE DESIGN (Media Queries) --- */
+@media (min-width: 768px) {
+    .app-container {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 16rem;
+        /* 64 */
+        height: 100vh;
+        position: sticky;
+        border-right: 1px solid #333;
+        border-bottom: none;
+    }
+
+    .mobile-bar,
+    .mobile-menu-dropdown {
+        display: none;
+    }
+
+    .desktop-menu {
+        display: block;
+        flex: 1;
+        overflow-y: auto;
+    }
+
+    .sidebar-footer {
+        display: block;
+    }
+
+    .main-content {
+        padding: 3rem;
+    }
+
+    /* Index */
+    .top-secret {
+        display: block;
+    }
+
+    .hero-title {
+        font-size: 6rem;
+    }
+
+    .hero-desc {
+        font-size: 1rem;
+    }
+
+    /* Notice */
+    .notice-title {
+        font-size: 1.25rem;
+    }
+
+    /* Characters */
+    .char-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .char-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* --- 11. EFFECTS --- */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1));
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.3;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--nerv-red);
+}
