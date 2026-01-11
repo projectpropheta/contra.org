@@ -1,42 +1,49 @@
 //프로페타 js
 
 $(document).ready(function () {
+    // [JS 문제 해결] 이벤트 핸들러를 document.ready 내부로 통합하여 안정성 확보
+
     // 페이지 전환 함수
     window.switchPage = function (pageId) {
-        // 1. 모든 섹션 페이드 아웃
+        // 부드러운 전환
         $('.page-section').removeClass('active-section').fadeOut(200);
-
-        // 2. 타겟 섹션 페이드 인 (약간의 딜레이)
         setTimeout(function () {
             $('#' + pageId).fadeIn(200).addClass('active-section');
+            // 페이지 전환 후 스크롤을 최상단으로 (모바일 패딩 고려)
+            $('.main-content').scrollTop(0);
+            window.scrollTo(0, 0);
         }, 200);
 
-        // 3. 네비게이션 활성화 상태 변경
+        // 네비게이션 상태 업데이트
         $('.nav-item').removeClass('active');
         $(`.nav-item[data-target="${pageId}"]`).addClass('active');
 
-        // 모바일 메뉴 닫기
-        $('#mobile-menu').addClass('hidden');
-
-        // 스크롤 최상단으로 이동
-        $('main').scrollTop(0);
+        // 모바일 메뉴 닫기 (애니메이션 없이 즉시 닫힘)
+        $('#mobile-menu').hide();
     };
 
-    // 모바일 메뉴 토글
-    $('#mobile-menu-toggle').click(function () {
-        $('#mobile-menu').toggleClass('hidden');
+    // 모바일 메뉴 토글 (중복 바인딩 방지 및 명확한 이벤트 처리)
+    $('#mobile-menu-toggle').off('click').on('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $('#mobile-menu').stop(true, true).slideToggle(200);
     });
 
-    // 초기 로딩 애니메이션 (옵션)
-    $('body').hide().fadeIn(1000);
+    // 메뉴 링크 클릭 시 닫기
+    $('.mobile-menu-link').off('click').on('click', function () {
+        $('#mobile-menu').hide();
+    });
 
-    // Random text glitch effect simulation for status bar
+    // 화면 클릭 시 메뉴 닫기 (메뉴 영역 밖 클릭 시)
+    $(document).on('click', function (e) {
+        if (!$(e.target).closest('.sidebar').length && !$(e.target).closest('#mobile-menu-toggle').length) {
+            $('#mobile-menu').hide();
+        }
+    });
+
+    // 상태바 랜덤 텍스트 효과
     setInterval(function () {
         const sync = Math.floor(Math.random() * 50) + 350;
         $('.sync-rate').text(sync + '%');
     }, 2000);
-
-    $('char-card1').click(function(evt){
-        evt.preventDefault();
-    });
 });
