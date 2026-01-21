@@ -53,7 +53,7 @@ $(document).ready(function () {
     });
 
     // 2. 드래그 방지
-    $(document).on("dragstart", function (e) {
+   $(document).on("dragstart", function (e) {
         return false;
     });
 
